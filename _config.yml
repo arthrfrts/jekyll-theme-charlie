@@ -1,0 +1,21 @@
+title: Charlie
+tagline: A simple, charming blog theme.
+description: >-
+  Charlie is a simple, classic-looking, charming Jekyll theme for bloggers. It includes a sidebar navigation, social links and archive pages.
+
+logo: "/assets/images/logo.jpg"
+
+url: "http://localhost:4000"
+baseurl: ""
+
+theme: jekyll-theme-charlie
+
+charlie:
+  hide_site_title: false
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-archives

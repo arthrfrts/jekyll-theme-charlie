@@ -1,3 +1,15 @@
 <div class="sidebar">
-  Lorem ipsum dolor sit amet.
+  {% if site.data.menus.main %}
+    <nav class="main_menu">
+      <ul>
+        {% for item in site.data.menus.main %}
+          <li class="menu_item">
+            <a href="{{ item.url }}" {% if item.external %}target="_blank" rel="external"{% endif %}>
+              {{ item.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
 </div>

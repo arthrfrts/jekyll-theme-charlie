@@ -8,3 +8,29 @@ dl, dd, ol, ul, figure {
   margin: 0;
   padding: 0;
 }
+
+/*
+  Basic styling
+*/
+
+body {
+  font: normal #{$base-font-size}/#{$base-line-height} $base-font-family;
+  background: $color-background;
+  color: $color-text;
+}
+
+// Vertical rhythm
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $spacing-unit / 2;
+}
+
+/*
+  Text elements
+*/
+
+a {
+  text-decoration: none;
+}

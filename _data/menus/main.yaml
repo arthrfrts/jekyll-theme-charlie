@@ -1,0 +1,7 @@
+- title: Latest Posts
+  url: "/"
+- title: About me
+  url: "/about/"
+- title: Use this theme
+  url: "https://github.com/arthrfrts/jekyll-theme-charlie"
+  external: true

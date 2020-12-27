@@ -1,7 +1,17 @@
 {% capture site_branding %}
     <a href="{{ site.url }}">
-      <img height="56" src="{{ site.logo | relative_path }}" alt="{{ site.title }}" />
+      <img class="site_logo" height="56" src="{{ site.logo | relative_path }}" alt="{{ site.title }}" />
     </a>
+{% endcapture %}
+
+{% capture site_name %}
+  <a href="{{ site.url }}">
+    {% if site.charlie.alternative_logo %}
+      <img class="site_brand" src="{{ site.charlie.alternative_logo }}" alt="{{ site.title }}" />
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </a>
 {% endcapture %}
 
 <header class="site_header">
@@ -27,15 +37,11 @@
     {% unless site.charlie.hide_site_title %}
       {% if page.title %}
         <p class="site_title">
-          <a href="{{ site.url }}">
-            {{ site.title }}
-          </a>
+          {{ site_name }}
         </p>
       {% else %}
         <h1 class="site_title">
-          <a href="{{ site.url }}">
-            {{ site.title }}
-          </a>
+          {{ site_name }}
         </h1>
       {% endif %}
     {% endunless %}
