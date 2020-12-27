@@ -1,0 +1,45 @@
+// Typography
+$base-font-family: system-ui, sans-serif !default;
+$content-font-family: "Palatino", "Palatino Linotype", "Book Antiqua", serif !default;
+$code-font-family: "Menlo",  "Consolas", "Monaco", "Inconsolata", monospace !default;
+$base-font-size: 16px !default; 
+$base-line-height: 1.65 !default;
+
+// Colors
+$color-text: #567 !default;
+$color-accent: rgba(64,188,244,0.5) !default;
+$color-background: #fff !default;
+
+$color-details: #9AB !default;
+$color-details-darker: #89A !default;
+$color-details-lighter: #F0F2F4 !default;
+
+// Structure
+$spacing-unit: 30px !default;
+$on-laptop: 800px;
+$on-palm: 600px;
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: #{$ratio}rem;
+}
+
+%container {
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @include media-query($on-laptop) {
+    padding-left: calc(#{$spacing-unit} / #{2});
+    padding-right: calc(#{$spacing-unit} / #{2});
+  }
+}
+
+@import
+  "jekyll-theme-charlie/base",
+  "jekyll-theme-charlie/layout";

@@ -1,0 +1,47 @@
+{% capture site_branding %}
+    <a href="{{ site.url }}">
+      <img height="56" src="{{ site.logo | relative_path }}" alt="{{ site.title }}" />
+    </a>
+{% endcapture %}
+
+<header class="site_header">
+  {% if site.logo %}
+    {% unless site.charlie.hide_site_title %}
+      <div class="branding">
+        {{ site_branding }}
+      </div>
+    {% else %}
+      {% if page.title %}
+        <div class="branding">
+          {{ site_branding }}
+        </div>
+      {% else %}
+        <h1 class="branding">
+          {{ site_branding }}
+        </h1>
+      {% endif %}
+    {% endunless %}
+  {% endif %}
+  
+  <div class="masthead">
+    {% unless site.charlie.hide_site_title %}
+      {% if page.title %}
+        <p class="site_title">
+          <a href="{{ site.url }}">
+            {{ site.title }}
+          </a>
+        </p>
+      {% else %}
+        <h1 class="site_title">
+          <a href="{{ site.url }}">
+            {{ site.title }}
+          </a>
+        </h1>
+      {% endif %}
+    {% endunless %}
+    
+    {% if site.tagline %}
+      <p class="site_tagline">{{ site.tagline }}</p>
+    {% endif %}
+  </div>
+</header>
