@@ -2,4 +2,23 @@
 layout: default
 ---
 
-{{ content }}
+<article class="page">
+  {% if page.image %}
+    <figure class="content_cover">
+      <img src="{{ page.image.path | default: page.image }}" alt="{{ page.image.alt }}" />
+    </figure>
+  {% endif %}
+  
+  {% unless page.title == "" %}
+    <header class="content_header">
+      <h1 class="content_title">
+        {{ page.title }}
+      </h1>
+    </header>
+  {% endunless %}
+  
+  <div class="content_body">
+    {{ content }}
+  </div>
+</article>
+

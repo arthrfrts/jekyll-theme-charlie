@@ -4,6 +4,7 @@ description: >-
   Charlie is a simple, classic-looking, charming Jekyll theme for bloggers. It includes a sidebar navigation, social links and archive pages.
 
 logo: "/assets/images/logo.jpg"
+lang: pt-BR
 
 url: "http://localhost:4000"
 baseurl: ""
@@ -12,6 +13,24 @@ theme: jekyll-theme-charlie
 
 charlie:
   hide_site_title: false
+  hide_blog_content: false
+  date_formats:
+    day: "%b, %-d %Y"
+    month: "%b, %Y"
+    year: "%Y"
+  
+paginate: 5
+paginate_path: "/page/:num/"
+
+social:
+  name: Arthur
+  links:
+    - https://twitter.com/arthrfrts
+    - https://www.facebook.com/arthrfrts
+    
+jekyll-archives:
+  enabled: "all"
+  layout: archive
 
 plugins:
   - jekyll-feed

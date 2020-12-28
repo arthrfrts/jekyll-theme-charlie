@@ -1,0 +1,39 @@
+<footer class="content_footer">
+  <p class="content_meta">
+    {% if include.post.author %}
+      <span class="content_author">
+        {{ site.data.translate[site.lang].by | default: "By" }}
+        
+        {% assign author = site.data.authors[author] %}
+        
+        <a href="{{ author.url }}" rel="author">
+          {{ author.name | default: include.post.author }}
+        </a>
+      </span>
+    {% endif %}
+    
+    <span class="content_date">
+      {{ site.data.translate[site.lang].posted_on | default: "on" }}
+      
+      <a href="{{ include.post.url }}" rel="bookmark">
+        <time datetime="{{ include.post.date | date_to_xmlschema }}">
+          {%- assign custom_date_format = site.charlie.date_formats.day | default: "%Y-%m-%d" -%}
+          
+          {{- include.post.date | date: custom_date_format -}}
+        </time>.
+      </a>
+    </span>
+  </p>
+  
+  <p class="content_tags">
+    {{ site.data.translate[site.lang].tagged_with | default: "Tagged with" }}
+    
+    {% for tag in include.post.tags %}
+      {% assign tag_slug = tag | slugify: "latin" %}
+      <a href="{{ site.jekyll-archives.permalinks.tag | replace: ":name", tag_slug }}">
+        {{- tag -}}
+      </a>
+      {%- unless forloop.last -%}, {% else %}.{%- endunless -%}
+    {% endfor %}
+  </p>
+</footer>

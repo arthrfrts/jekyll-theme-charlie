@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<header class="archive_header">
+  <h2 class="archive_title">
+    {%- if page.date -%}
+      {{ site.data.translate[site.lang].archive_date_title | default: "Posts published on" }}
+      
+      <strong>{{ page.date | date: site.charlie.date_formats[page.type] }}</strong>
+    {%- else -%}
+      {% if post.type == "tag" %}
+        {{ site.data.translate[site.lang].archive_tag_title | default: "Posts tagged with" }}
+      {% else %}
+        {{ site.data.translate[site.lang].archive_categoriy_title | default: "Posts filed in" }}
+      {% endif %}
+      
+      <strong>{{ page.title }}</strong>
+    {%- endif -%}
+  </h2>
+  
+  {%- if page.type == "tag" -%}
+    {%- for column in site.data.columns -%}
+      {% assign column_name = column.title | downcase %}
+      {% assign page_title = page.title | downcase %}
+      
+      {%- if column_name == page_title -%}
+        {{ column.description | markdownify }}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+</header>
+
+{%- for post in page.posts -%}
+  {%- include post.html post=post -%}
+{%- endfor -%}

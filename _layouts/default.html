@@ -14,5 +14,9 @@
     </main>
     
     {% include footer.html %}
+    
+    {% if content contains "iframe" %}
+      <script src="{{ '/assets/js/embeds.js' | relative_url }}"></script>
+    {% endif %}
   </body>
 </html>

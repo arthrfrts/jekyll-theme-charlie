@@ -95,8 +95,7 @@ body {
     }
     
     .site_tagline {
-      font-style: italic;
-      font-weight: lighter;
+      @include relative-font-size(0.875);
       color: $color-details-darker;
       margin-bottom: 0;
     }
@@ -123,9 +122,124 @@ body {
   }
 }
 
+// Blog
+.post + .post {
+  margin-top: $spacing-unit * 3;
+}
+
+.pagination {
+  margin-top: $spacing-unit * 3;
+  @include relative-font-size(0.685);
+  text-transform: uppercase;
+  
+  @include media-query($on-palm) {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  
+  a {
+    font-weight: bold;
+    color: $color-details-darker;
+    
+    @include media-query($on-palm) {
+      display: inline-block;
+      margin: 1em;
+    }
+    
+    & + a {
+      margin-left: 2em;
+      
+      @include media-query($on-palm) {
+        margin-left: 1em;
+      }
+    }
+    
+    &:hover,
+    &:focus {
+      color: $color-details;
+    }
+  }
+}
+
+// Page
+.content {  
+  .content_cover {
+    margin-bottom: $spacing-unit / 2;
+    
+    img {
+      display: block;
+    }
+  }
+  
+  .content_header {    
+    .content_title {
+      font-weight: bold;
+      @include relative-font-size(1.5);
+      line-height: 1.25;
+      
+      a {
+        color: currentColor;
+        
+        &:hover,
+        &:focus {
+          color: $color-details;
+        }
+      }
+    }
+  }
+  
+  .content_body {
+    p, ul, ol, dl {
+      font-family: $content-font-family;
+    }
+    
+    a {
+      color: currentColor;
+      text-decoration: underline;
+      text-decoration-color: $color-accent;
+      text-decoration-thickness: 4px;
+      
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $color-accent;
+      }
+    }
+  }
+  
+  .content_footer {
+    @include relative-font-size(0.685);
+    margin-top: $spacing-unit;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: 0.01em;
+    
+    p {
+      margin-bottom: 0;
+      color: $color-details;
+      
+      a {
+        color: $color-details;
+        text-decoration: underline;
+        text-decoration-color: $color-details-lighter;
+        font-weight: bold;
+        
+        &:hover,
+        &:focus {
+          color: $color-details-darker;
+          text-decoration-color: $color-details-darker;
+        }
+      }
+    }
+  }
+}
+
 // Navigation
 .main_menu {
   @media screen and (min-width: $on-palm) {
+    position: sticky;
+    top: $spacing-unit;
     border-right: 1px solid $color-details-lighter;
     padding-top: $spacing-unit / 2;
     padding-bottom: $spacing-unit / 2;
@@ -133,6 +247,8 @@ body {
   
   ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
     
     @include media-query($on-palm) {
       display: flex;
@@ -155,9 +271,10 @@ body {
     
     li {
       font-weight: bold;
+      margin: 0;
       
       @include media-query($on-palm) {
-        flex: 1 0 auto;
+        flex: 0 0 auto;
         
         &:not(:last-child) {
           margin-right: $spacing-unit / 2;
@@ -171,6 +288,92 @@ body {
         &:focus {
           color: $color-details;
         }
+      }
+    }
+  }
+}
+
+// Sidebar
+.widgets {
+  @include relative-font-size(0.875);
+  margin-top: $spacing-unit;
+  
+  @include media-query($on-palm) {
+    display: none;
+  }
+}
+
+// Archives
+.archive_header {
+  margin-bottom: $spacing-unit * 2;
+  
+  .archive_title {
+    font-weight: normal;
+    @include relative-font-size(0.875);
+    
+    strong {
+      display: block;
+      @include relative-font-size(1.5);
+    }
+  }
+}
+
+/*
+  Site Footer
+*/
+.site_footer {
+  background: $color-details-lighter;
+  border-top: 1px solid darken($color-details-lighter, 10%);
+  padding-top: $spacing-unit;
+  padding-bottom: $spacing-unit;
+  
+  .wrapper {
+    @extend %container;
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    
+    @include media-query($on-palm) {
+      display: block;
+    }
+    
+    .social {
+      margin-bottom: $spacing-unit / 2;
+      
+      a {
+        display: inline-block;
+        
+        &:not(:last-child) {
+          &::after {
+            content: "/";
+            display: inline-block;
+            color: $color-details;
+          }
+        }
+        
+        svg {
+          width: 1.5rem;
+          height: 1.5rem;
+          fill: $color-details;
+          vertical-align: middle;
+        }
+        
+        &:hover,
+        &:focus {
+          svg {
+            fill: $color-details-darker;
+          }
+        }
+      }
+    }
+    
+    .colophon {
+      flex: 1;
+      > :not(:first-child) {
+        @include relative-font-size(0.685);
+      }
+      
+      > :last-child {
+        margin-bottom: 0;
       }
     }
   }

@@ -1,0 +1,25 @@
+<article class="post">
+  {% if post.image %}
+    <figure class="content_cover">
+      <img src="{{ post.image.path | default: post.image }}" alt="{{ post.image.alt }}" />
+    </figure>
+  {% endif %}
+  
+  {% unless post.title == "" %}
+    <header class="content_header">
+      <h2 class="content_title">
+        <a href="{{ post.url }}" rel="bookmark">
+          {{ post.title }}
+        </a>
+      </h2>
+    </header>
+  {% endunless %}
+  
+  {% unless site.hide_blog_content or page.layout == "archive" %}
+    <div class="content_body">
+      {{ post.content }}
+    </div>
+  {% endunless %}
+  
+  {% include post-footer.html post=post %}
+</article>

@@ -23,7 +23,8 @@ body {
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
-%vertical-rhythm {
+video, audio, iframe,
+table, %vertical-rhythm {
   margin-bottom: $spacing-unit / 2;
 }
 
@@ -31,6 +32,122 @@ ul, ol, dl, figure,
   Text elements
 */
 
+// Lists
+ul, ol {
+  padding-left: $spacing-unit;
+  
+  ul, ol {
+    margin-bottom: 0;
+  }
+  
+  li {
+    margin-top: $spacing-unit / 4;
+    margin-bottom: $spacing-unit / 4;
+  }
+}
+
+// Headings
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+h1 {
+  @include relative-font-size(1.5);
+}
+
+h2 {
+  @include relative-font-size(1.3);
+}
+
+h3 {
+  @include relative-font-size(1.1);
+}
+
+h4 {
+  @include relative-font-size(1);
+}
+
+h5 {
+  @include relative-font-size(0.875);
+}
+
+h6 {
+  font-size: $base-font-size;
+}
+
+// Links
 a {
+  color: $color-accent;
   text-decoration: none;
+  
+  &:hover,
+  &:focus {
+    color: $color-details-darker
+  }
+}
+
+// Horizontal rule
+hr {
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit;
+  height: 1px;
+  width: 100%;
+  background: $color-details-lighter;
+  border: none;
+}
+
+// Media
+img, video,
+audio, iframe {
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+img + em {
+  display: block;
+  @include relative-font-size(0.685);
+  margin-top: $spacing-unit / 4;
+  font-family: $base-font-family;
+  color: $color-details;
+}
+
+// Blockquotes
+
+blockquote {
+  border-left: 1px solid $color-details-lighter;
+  padding-left: $spacing-unit;
+}
+
+// Code and pre-formatted text
+code, pre {
+  font-size: $code-font-family;
+  @include relative-font-size(0.875);
+}
+
+pre {
+  border-radius: 3px;
+  padding: $spacing-unit / 2;
+  background: $color-details-lighter;
+  color: $color-details-darker;
+}
+
+// Tables
+table {
+  width: 100%;
+  border: 1px solid $color-details-lighter;
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: left;
+  
+  th {
+    background: $color-details-lighter;
+    color: $color-details-darker;
+  }
+  
+  th, td {
+    padding: $spacing-unit / 4;
+    border: 1px solid $color-details-lighter
+  }
 }
