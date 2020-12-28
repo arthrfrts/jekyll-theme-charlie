@@ -1,16 +1,22 @@
 <footer class="site_footer">
   <div class="wrapper">
-    {%- if site.social.links -%}
+    {%- if site.social.links or site.charlie.hide_rss_icon != false -%}
       <nav class="social">
         {%- for item in site.social.links -%}
-          {% assign service = item | remove: "www." | remove: "https://" | split: "." | first %}
-          {% assign icon = service | append: '.svg' | prepend: 'icons/' %}
+          {%- assign service = item | remove: "www." | remove: "https://" | split: "." | first -%}
+          {%- assign icon = service | append: '.svg' | prepend: 'icons/' -%}
           
           <a class="social_item" href="{{- item -}}" rel="external" target="_blank">
             {%- include {{ icon }} -%}
           </a>
           
         {%- endfor -%}
+        
+        {%- if site.charlie.hide_rss_icon != false -%}
+          <a class="social_item" href="{{ site.charlie.custom_rss_path | default: '/feed.xml' }}" rel="alternate">
+            {%- include icons/rss.svg -%}
+          </a>
+        {%- endif -%}
       </nav>
     {%- endif -%}
     

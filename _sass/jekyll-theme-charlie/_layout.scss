@@ -338,6 +338,11 @@ body {
     
     .social {
       margin-bottom: $spacing-unit / 2;
+      margin-left: $spacing-unit;
+      
+      @include media-query($on-palm) {
+        margin-left: 0;
+      }
       
       a {
         display: inline-block;
