@@ -151,3 +151,55 @@ table {
     border: 1px solid $color-details-lighter
   }
 }
+
+// Forms
+input[type="text"],
+input[type="email"],
+input[type="search"],
+textarea {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  border-bottom: 4px solid $color-details-lighter;
+  border-radius: 0;
+  padding: calc(#{$spacing-unit} / 4);
+  cursor: text;
+  font: inherit;
+  width: 100%;
+  transition: border-bottom-color 250ms linear;
+  
+  &:focus,
+  &:active {
+    outline: none;
+    border-bottom-color: $color-details-darker;
+  }
+}
+
+textarea {
+  resize: none;
+  min-height: 15vh;
+}
+
+input[type="button"],
+input[type="submit"],
+button {
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  background: transparent;
+  font: inherit;
+  font-weight: bold;
+  display: inline-block;
+  width: auto;
+  box-shadow: inset 0 -4px 0 $color-details-lighter;
+  transition-property: color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+  
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 -2.5em 0 $color-details-lighter;
+    color: $color-details-darker;
+  }
+}
