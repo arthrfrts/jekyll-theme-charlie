@@ -347,6 +347,8 @@ body {
             content: "/";
             display: inline-block;
             color: $color-details;
+            margin-left: 4px;
+            margin-right: 4px;
           }
         }
         
@@ -368,6 +370,21 @@ body {
     
     .colophon {
       flex: 1;
+      
+      a {
+        font-weight: bold;
+        color: currentColor;
+        
+        &:hover,
+        &:focus {
+          color: $color-details-darker;
+        }
+      }
+      
+      > :first-child {
+        @include relative-font-size(1.125);
+      }
+      
       > :not(:first-child) {
         @include relative-font-size(0.685);
       }
