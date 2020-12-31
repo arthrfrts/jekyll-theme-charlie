@@ -11,7 +11,7 @@ layout: default
       {% if post.type == "tag" %}
         {{ site.data.translate[site.lang].archive_tag_title | default: "Posts tagged with" }}
       {% else %}
-        {{ site.data.translate[site.lang].archive_categoriy_title | default: "Posts filed in" }}
+        {{ site.data.translate[site.lang].archive_category_title | default: "Posts filed in" }}
       {% endif %}
       
       <strong>{{ page.title }}</strong>
