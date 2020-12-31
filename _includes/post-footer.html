@@ -29,7 +29,7 @@
     {{ site.data.translate[site.lang].tagged_with | default: "Tagged with" }}
     
     {% for tag in include.post.tags %}
-      {% assign tag_slug = tag | slugify: "latin" %}
+      {% assign tag_slug = tag | slugify %}
       <a href="{{ site.jekyll-archives.permalinks.tag | replace: ":name", tag_slug }}">
         {{- tag -}}
       </a>
