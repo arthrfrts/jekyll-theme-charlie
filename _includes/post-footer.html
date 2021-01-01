@@ -4,7 +4,7 @@
       <span class="content_author">
         {{ site.data.translate[site.lang].by | default: "By" }}
         
-        {% assign author = site.data.authors[author] %}
+        {% assign author = site.data.authors[include.post.author] %}
         
         <a href="{{ author.url }}" rel="author">
           {{ author.name | default: include.post.author }}
